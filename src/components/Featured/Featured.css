@@ -1,0 +1,76 @@
+.featured__container {
+  background-color: #fefaf0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured__title > h1 {
+  font-family: var(--primary-font);
+  font-size: 2rem;
+  font-weight: 500;
+  color: #403f2b;
+  padding: 2rem;
+}
+
+.featured__contents {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 3rem;
+  gap: 2rem;
+}
+
+.featured__product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  flex: 1 1 calc(20rem); /* Flex basis for responsiveness */
+  min-height: 22rem; /* Ensures all cards have equal height */
+  text-align: center;
+}
+
+.featured__product > img {
+  height: 15rem;
+  object-fit: cover; /* Prevent image distortion */
+  border-radius: 15px; /* Rounded square border */
+  transition: transform 0.3s ease, border-radius 0.3s ease;
+  cursor: pointer;
+}
+
+.featured__product img:hover {
+  transform: scale(1.1); /* Zoom-in effect */
+  border-radius: 0; /* Square border */
+}
+
+.featured__product > p {
+  color: rgb(64, 63, 43);
+  font-family: var(--secondary-font);
+  font-size: 1.2rem;
+  text-align: center;
+  /* flex-grow: 1; 
+  margin: 25px; */
+}
+
+.featured__product > button {
+    border: 1px solid rgb(64, 63, 43);
+    padding: 10px;
+    background-color: #fefaf0;
+    width: 12rem;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: rgb(64, 63, 43);
+}

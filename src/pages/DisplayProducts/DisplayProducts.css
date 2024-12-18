@@ -1,0 +1,27 @@
+.display__container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: #ddddcc;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.display__products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display__product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display__product > img {
+    width: 13rem;
+    height: 13rem;
+}

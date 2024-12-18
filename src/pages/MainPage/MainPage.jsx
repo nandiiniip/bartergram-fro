@@ -1,14 +1,17 @@
-import React from 'react'
-import './MainPage.css'
+import React from "react";
+import "./MainPage.css";
+import { Landing, About, Featured } from "../../components";
 
 const MainPage = () => {
   return (
     <>
-        <div>
-            <h1>Hello World!!</h1>
-        </div>
+      <div className="mainpage__container">
+        <Landing />
+        <Featured />
+        <About />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;
