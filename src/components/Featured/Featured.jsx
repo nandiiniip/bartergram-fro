@@ -1,8 +1,13 @@
 import React from 'react';
 import './Featured.css';
 import prodimg from "../../assets/jpg/img2.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Featured = () => {
+    const navigate = useNavigate();
+  const handleChat = () => {
+    navigate("/chat");
+  }
   return (
     <>
     <div className='featured__container'>
@@ -13,22 +18,22 @@ const Featured = () => {
         <div className='featured__product'>
             <img src={prodimg}></img>
             <p className='prod__name'>Eco Glass</p>
-            <button className='chat__button'>Chat Now</button>
+            <button className='chat__button' onClick={handleChat}>Chat Now</button>
         </div>
         <div className='featured__product'>
             <img src={prodimg}></img>
             <p className='prod__name'>Stainless Steel Bottle</p>
-            <button className='chat__button'>Chat Now</button>
+            <button className='chat__button' onClick={handleChat}>Chat Now</button>
         </div>
         <div className='featured__product'>
             <img src={prodimg}></img>
             <p className='prod__name'>Wooden Brush</p>
-            <button className='chat__button'>Chat Now</button>
+            <button className='chat__button' onClick={handleChat}>Chat Now</button>
         </div>
         <div className='featured__product'>
             <img src={prodimg}></img>
             <p className='prod__name'>Organic Cotton Mesh Bag</p>
-            <button className='chat__button'>Chat Now</button>
+            <button className='chat__button' onClick={handleChat}>Chat Now</button>
         </div>
       </div>
     </div>

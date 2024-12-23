@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Landing.css";
 import logo from "../../assets/png/bartergram-logo.png";
 import handshake from "../../assets/png/hand-shake.png";
 import Aos from "aos";
 
 const Landing = () => {
+    const navigate = useNavigate();
+    const handleButton = () => {
+        navigate("/explore");
+      };
+    
   useEffect(() => {
     Aos.init({
       duration: 1000,
@@ -17,7 +23,7 @@ const Landing = () => {
           <img src={logo} className="logo__image"></img>
           <div className="handshake__part">
             <img src={handshake} className="handshake__img"></img>
-            <button className="explore__button">
+            <button className="explore__button" onClick={handleButton}>
               <span />
               <span />
               <span />

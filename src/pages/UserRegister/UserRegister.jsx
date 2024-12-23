@@ -15,6 +15,10 @@ const UserRegister = () => {
     navigate("/"); // Redirect to home page
   };
 
+  const handleLogin = () => {
+    navigate("/login");
+  }
+
   const registerMutation = useMutation(
     (data) =>
       axios.post(`${baseUrl}/register`, data, {
@@ -98,7 +102,7 @@ const UserRegister = () => {
           </div>
         )}
         <div>
-            <p className="text__content">Already a member? <span className="login__text">Log In</span></p>
+            <p className="text__content">Already a member? <span className="login__text" onClick={handleLogin}>Log In</span></p>
         </div>
       </div>
     </div>
