@@ -1,27 +1,115 @@
 .display__container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  background-color: #ddddcc;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+width: 100%;
+min-height: 100vh;
+display: flex;
+background-color: #ddddcc;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+padding: 2rem;
+}
+
+.header {
+width: 100%;
+max-width: 1200px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 2rem;
+}
+
+.close__button {
+font-size: 1.5rem;
+cursor: pointer;
+color: #333;
+}
+
+.close__button:hover {
+color: #000;
 }
 
 .display__products {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 2rem;
+max-width: 1200px;
 }
 
 .display__product {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: white;
+padding: 1rem;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.2s ease;
+}
+
+.display__product:hover {
+transform: translateY(-5px);
 }
 
 .display__product > img {
-    width: 13rem;
-    height: 13rem;
+width: 13rem;
+height: 13rem;
+object-fit: cover;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.prod__name {
+font-weight: bold;
+margin: 0.5rem 0;
+font-size: 1.1rem;
+}
+
+.image__count {
+color: #666;
+font-size: 0.9rem;
+margin-top: 0.5rem;
+}
+
+.loading__message,
+.error__message,
+.no__products {
+font-size: 1.2rem;
+color: #333;
+text-align: center;
+}
+
+.error__message {
+color: #dc2626;
+}
+
+/* Modal styles */
+.modal__overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.7);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+padding: 2rem;
+}
+
+.modal__content {
+max-width: 90vw;
+max-height: 90vh;
+background: white;
+border-radius: 8px;
+overflow: hidden;
+}
+
+.modal__content img {
+width: 100%;
+height: 100%;
+object-fit: contain;
 }
