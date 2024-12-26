@@ -44,6 +44,7 @@
 
 .featured__product > img {
   height: 15rem;
+  width: 13rem;
   object-fit: cover; /* Prevent image distortion */
   border-radius: 15px; /* Rounded square border */
   transition: transform 0.3s ease, border-radius 0.3s ease;
@@ -60,6 +61,7 @@
   font-family: var(--secondary-font);
   font-size: 1.2rem;
   text-align: center;
+  margin: 0 10px;
   /* flex-grow: 1; 
   margin: 25px; */
 }
@@ -74,3 +76,25 @@
     font-size: 1rem;
     color: rgb(64, 63, 43);
 }
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel__viewport {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+  }
+  
+  .prev__button,
+  .next__button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 7rem;
+  }
+  
