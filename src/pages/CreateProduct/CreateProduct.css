@@ -8,4 +8,125 @@
   align-items: center;
 }
 
+.close__button_prod {
+    margin-left: auto;
+    margin-bottom: -2.2rem;
+    margin-right: -22rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* .form__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+} */
+
+.form__content {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  /* background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  font-family: "Arial", sans-serif;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(14px) saturate(135%);
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
+  background-color: rgba(17, 25, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(185, 168, 168, 0.125);
+  background: #e0e0e0;
+  box-shadow: 5px 8px 23px #a49a9a, -4px -3px 35px #7b7272;
+}
+
+/* Form Fields */
+.form__field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__field label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #403f2b;
+  text-transform: uppercase;
+}
+
+.form__field input[type="text"],
+.form__field textarea,
+.form__field input[type="file"] {
+  padding: 10px;
+  border: 1.5px solid #403f2b;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #403f2b;
+  background-color: #f9f9f9;
+  /* transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+}
+
+.form__field input[type="text"]:focus,
+.form__field textarea:focus,
+.form__field input[type="file"]:focus {
+  border: 1px solid #c4c197;
+  box-shadow: 0 0 8px rgba(207, 215, 224, 0.25);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Submit Button */
+.submit__button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #443e37, #5a5349, #706c5a);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.submit__button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.submit__button:active {
+  transform: translateY(1px);
+  background-color: #004080;
+}
+
+.createprod__heading > h1 {
+  font-family: var(--primary-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #403f2b;
+  margin-bottom: -2rem;
+}
+
+.createprod__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}

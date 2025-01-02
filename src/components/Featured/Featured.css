@@ -74,7 +74,8 @@
     cursor: pointer;
     border-radius: 15px;
     font-size: 1rem;
-    color: rgb(64, 63, 43);
+    color: #ffffff;
+    margin-bottom: 1rem;
 }
 
 .carousel {

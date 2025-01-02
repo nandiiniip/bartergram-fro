@@ -15,21 +15,30 @@
 }
 
 .form__container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #e0e0e0;
+  padding: 35px;
+  /* border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   width: 100%;
   max-width: 400px;
   text-align: center;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(14px) saturate(135%);
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
+  background-color: rgba(17, 25, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(185, 168, 168, 0.125);
+  background: #e0e0e0;
+  box-shadow: 5px 8px 23px #a49a9a, -4px -3px 35px #7b7272;
 }
 
 .form__title {
   margin-bottom: 20px;
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: #000000;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #403f2b;
   font-family: var(--primary-font);
+  text-transform: uppercase;
 }
 
 .form__group {
@@ -39,41 +48,45 @@
 
 .form__group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
   font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #403f2b;
+  text-transform: uppercase;
   font-family: var(--primary-font);
 }
 
 .form__group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1.5px solid #403f2b;
   border-radius: 5px;
   font-size: 14px;
 }
 
 .form__group input:focus {
-  border-color: #000000;
+    border: 1px solid #c4c197;
   outline: none;
 }
 
 .form__button {
   width: 50%;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     #29323c,
     #485563,
     #2b5876,
     #4e4376
-  );
+  ); */
   box-shadow: 0 2px 13px 0 rgba(45, 54, 65, 0.75);
   color: #fff;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
+  background: linear-gradient(to right, #443e37, #5a5349, #706c5a);
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .form__button:hover,
@@ -114,6 +127,7 @@
 
 .text__content {
     font-size: 1rem;
+    padding-top: 1rem;
 }
 .login__text {
     font-weight: bold;

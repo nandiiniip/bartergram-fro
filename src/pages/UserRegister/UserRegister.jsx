@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "react-query";
 import axios from "axios";
 import "./UserRegister.css";
@@ -17,7 +17,7 @@ const UserRegister = () => {
 
   const handleLogin = () => {
     navigate("/login");
-  }
+  };
 
   const registerMutation = useMutation(
     (data) =>
@@ -28,6 +28,7 @@ const UserRegister = () => {
       onSuccess: (response) => {
         setMessage({ type: "success", text: response.data.msg });
         setFormData({ username: "", password: "" });
+        setTimeout(() => navigate("/login"), 2000);
       },
       onError: (error) => {
         const errorMessage =
@@ -40,7 +41,7 @@ const UserRegister = () => {
   useEffect(() => {
     setFormData({ username: "", password: "" });
     setMessage(""); // Clear any previous messages
-  }, []); 
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -101,9 +102,6 @@ const UserRegister = () => {
             {message.text}
           </div>
         )}
-        <div>
-            <p className="text__content">Already a member? <span className="login__text" onClick={handleLogin}>Log In</span></p>
-        </div>
       </div>
     </div>
   );

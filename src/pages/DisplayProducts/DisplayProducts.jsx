@@ -5,10 +5,13 @@ import "./DisplayProducts.css";
 import baseUrl from "../../utils/urls";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "../../components";
+import DisplayCard from "../DisplayCard/DisplayCard";
 
 const DisplayProducts = () => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [productId, setProductId] = useState(null);
 
   const { data, error, isLoading } = useQuery("userProducts", async () => {
     const token = localStorage.getItem("token");
@@ -24,9 +27,10 @@ const DisplayProducts = () => {
     return response.data;
   });
 
-  const handleClose = () => {
-    navigate("/");
-  };
+
+  const handleClick = () => {
+    navigate("/create")
+  }
 
   if (isLoading) {
     return (
@@ -51,11 +55,16 @@ const DisplayProducts = () => {
   return (
     <>
       <div className="display__container">
+        <Navbar />
+        <div className="display__content">
         <div className="header">
           <h1>My Products</h1>
-          <div className="close__button" onClick={handleClose}>
-            <IoMdCloseCircleOutline />
-          </div>
+          <div className="prod__sub">
+          <button className="prod__button" onClick={handleClick}>Create Product</button>
+          {/* <div className="close__button" onClick={handleClose}>
+          <IoMdCloseCircleOutline />
+            </div> */}
+            </div>
         </div>
 
         <div className="display__products">
@@ -72,7 +81,7 @@ const DisplayProducts = () => {
                   />
                 )}
                 <p className="prod__name">{product.product_name}</p>
-                <p>{product.description}</p>
+                {/* <p>{product.description}</p> */}
                 <p className="image__count">Images: {product.image_count}</p>
               </div>
             ))
@@ -90,6 +99,7 @@ const DisplayProducts = () => {
             </div>
           </div>
         )}
+      </div>
       </div>
     </>
   );

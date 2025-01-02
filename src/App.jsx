@@ -7,6 +7,9 @@ import {
   DisplayProduct,
   Login,
   ChatPage,
+  Explore,
+  ChatList, 
+  DisplayCard
 } from "./pages";
 import "./App.css";
 import PrivateRoute from "./utils/PrivateRoute";
@@ -27,7 +30,7 @@ const App = () => {
           }
         />
         <Route
-          path="/explore"
+          path="/display"
           element={
             <PrivateRoute>
               <DisplayProduct />
@@ -35,10 +38,42 @@ const App = () => {
           }
         />
         <Route
+          path="/product"
+          element={
+            <PrivateRoute>
+              <DisplayCard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <PrivateRoute>
+              <ChatList />
+            </PrivateRoute>
+          }
+        />
+        {/* <Route
+          path="/chat/:receiverUsername"
+          element={
+            <PrivateRoute>
+              <ChatPage />
+            </PrivateRoute>
+          }
+        /> */}
+        <Route
           path="/chat"
           element={
             <PrivateRoute>
               <ChatPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/explore"
+          element={
+            <PrivateRoute>
+              <Explore />
             </PrivateRoute>
           }
         />

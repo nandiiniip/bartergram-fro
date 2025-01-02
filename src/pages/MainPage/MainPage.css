@@ -4,5 +4,6 @@
   background-color: #ddddcc;
   flex-direction: column;
   justify-content: center;
+  padding-top: 0.5rem;
   /* min-height: 100vh; */
 }

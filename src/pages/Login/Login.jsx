@@ -23,17 +23,17 @@ const Login = () => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       }),
     {
-        onSuccess: (response) => {
-            console.log("API Response:", response.data); // Debugging API response
-            const { access_token, username, token_type, expires_at } = response.data; // Destructure the full response
-            if (!access_token || !username) {
-              setMessage({ type: "error", text: "Login failed: Missing data from API" });
-              return;
-            }
-            login(access_token, username); // Pass token and username to context
-            setMessage({ type: "success", text: "Login successful!" });
-            setTimeout(() => navigate("/explore"), 1000);
-          },
+      onSuccess: (response) => {
+        console.log("API Response:", response.data); // Debugging API response
+        const { access_token, username, user_id, token_type, expires_at } = response.data; // Destructure the full response
+        if (!access_token || !username || !user_id) {
+          setMessage({ type: "error", text: "Login failed: Missing data from API" });
+          return;
+        }
+        login(access_token, username, user_id); // Pass token, username, and id to context
+        setMessage({ type: "success", text: "Login successful!" });
+        setTimeout(() => navigate("/explore"), 1000);
+      },
       onError: (error) => {
         const errorMessage =
           error.response?.data?.detail || "Invalid username or password";
@@ -50,6 +50,10 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleLogin = () => {
+    navigate("/register");
   };
 
   const handleSubmit = (e) => {
@@ -112,6 +116,11 @@ const Login = () => {
               {message.text}
             </div>
           )}
+        </div>
+        <div>
+          <p className="text__content">
+            Not a member? <span className="login__text" onClick={handleLogin}>Sign Up</span>
+          </p>
         </div>
       </div>
     </div>

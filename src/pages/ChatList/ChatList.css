@@ -1,0 +1,114 @@
+/* General container styling */
+.mychats__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ddddcc;
+    padding-top: 2rem;
+}
+.mychats__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 40px auto;
+    padding: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 6px 5px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styles */
+  .mychats__container h1 {
+    font-family: var(--primary-font);
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 800;
+    color: #403f2b;
+    /* margin-bottom: -2rem; */
+    padding-bottom: 1rem;
+  }
+  
+  /* Loading and error messages */
+  .loading__message,
+  .error__message,
+  .no__chats {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin: 20px 0;
+  }
+  
+  /* Chat list styles */
+  .chat__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chat__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7.5rem;
+    /* gap: 7rem; */
+}
+  /* Chat item styles */
+  .chat__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:#403f2b;
+    width: 22rem;
+    font-family: var(--primary-font);
+    padding: 15px;
+    margin: 10px 0;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .chat__item:hover {
+    background: #e2e0c3;
+    font-family: var(--secondary-font);
+    color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Chat username styles */
+  .chat__username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Optional icon or avatar for future use */
+  .chat__avatar {
+    width: 40px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  /* Add some spacing around the text */
+  .chat__item span {
+    display: flex;
+    /* flex: 1; */
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  

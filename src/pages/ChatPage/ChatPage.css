@@ -2,19 +2,31 @@
     display: flex;
     flex-direction: column;
     height: 80vh;
-    max-width: 600px; /* limit the width */
+    width: 60%;/* limit the width */
     margin: 20px auto;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    margin-top: 3rem;
+}
+
+.chat__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-bottom: 2rem; */
+    min-height: 100vh;
+    background-color: #ddddcc;
 }
 
 .chat-header {
     padding: 15px;
     border-bottom: 1px solid #ddd;
     text-align: center;
-    background-color: #f0f0f0;
+    color: #f0f0f0;
+    font-family: var(--secondary-font);
+    background-color: #403f2b;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
@@ -25,6 +37,7 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
+    background-color: #f0f0f0;
 }
 
 
@@ -46,12 +59,22 @@
 
 .message.sent {
     background-color: #dcf8c6;
+    font-family:var(--secondary-font);
+    font-weight: 500;
     align-self: flex-end;
     float: right;
 }
 
+.message-timestamp {
+    font-family:sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
 .message.received {
     background-color: #fff;
+    font-family:var(--secondary-font);
+    font-weight: 500;
     align-self: flex-start;
     float: left;
 }
@@ -60,7 +83,7 @@
     display: flex;
     padding: 15px;
     border-top: 1px solid #ddd;
-    background-color: #f0f0f0;
+    background-color: #faf6f6e0;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
@@ -74,12 +97,14 @@
 }
 
 .send-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+    box-shadow: 0 2px 13px 0 rgba(45, 54, 65, 0.75);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  background: linear-gradient(to right, #443e37, #5a5349, #706c5a);
+  cursor: pointer;
 }
 
 .send-button:hover {

@@ -6,24 +6,27 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const login = (token, username) => {
-    console.log("Storing token and username:", token, username); // Debugging context values
+  const login = (token, username, id) => {
+    console.log("Storing token, username, and id:", token, username, id); // Debugging context values
     localStorage.setItem("token", token);
     localStorage.setItem("username", username);
-    setAuthState({ token, username, isAuthenticated: true });
-  }; 
-  
+    localStorage.setItem("user_id", id); // Store user_id as well
+    setAuthState({ token, username, user_id: id, isAuthenticated: true });
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-    setAuthState({ token: null, username: null, isAuthenticated: false });
+    localStorage.removeItem("user_id");
+    setAuthState({ token: null, username: null, user_id: null, isAuthenticated: false });
     navigate("/login");
   };
-  
+
   // Initial state
   const [authState, setAuthState] = useState({
     token: localStorage.getItem("token") || null,
     username: localStorage.getItem("username") || null,
+    user_id: localStorage.getItem("user_id") || null,
     isAuthenticated: !!localStorage.getItem("token"),
   });
 

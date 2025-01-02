@@ -1,27 +1,59 @@
 .display__container {
-width: 100%;
-min-height: 100vh;
-display: flex;
-background-color: #ddddcc;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    background-color: #ddddcc;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.display__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-top: 3rem;
 }
 
 .header {
-width: 100%;
-max-width: 1200px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 2rem;
+    width: 100%;
+    /* max-width: 1200px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+    padding-top: 2rem;
+}
+
+.header > h1 {
+    font-family: var(--primary-font);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #403f2b;
+}
+
+.prod__button {
+    border: 1px solid rgb(64, 63, 43);
+    padding: 10px;
+    background-color: #fefaf0;
+    width: 12rem;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: rgb(64, 63, 43);
+}
+
+.prod__button:hover {
+    transform: translateY(-0.25em);
 }
 
 .close__button {
 font-size: 1.5rem;
 cursor: pointer;
 color: #333;
+margin-top: 0.3rem;
 }
 
 .close__button:hover {
@@ -62,9 +94,11 @@ cursor: pointer;
 }
 
 .prod__name {
-font-weight: bold;
-margin: 0.5rem 0;
-font-size: 1.1rem;
+    font-weight: bold;
+    font-family: var(--secondary-font);
+    color: #403f2b;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
 }
 
 .image__count {
@@ -112,4 +146,12 @@ overflow: hidden;
 width: 100%;
 height: 100%;
 object-fit: contain;
+}
+
+.prod__sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-right: -3rem;
 }
