@@ -70,7 +70,7 @@ const Explore = () => {
                 >
                   {product.image_base64 && (
                     <img
-                      src={`data:image/jpeg;base64,${product.image_base64}`}
+                      src={`data:image/jpeg;base64,${product.image_base64[0]}`}
                       alt={product.name}
                     />
                   )}
