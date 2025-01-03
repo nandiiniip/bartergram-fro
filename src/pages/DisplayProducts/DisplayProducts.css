@@ -45,9 +45,9 @@
     color: rgb(64, 63, 43);
 }
 
-.prod__button:hover {
+/* .prod__button:hover {
     transform: translateY(-0.25em);
-}
+} */
 
 .close__button {
 font-size: 1.5rem;
@@ -76,6 +76,7 @@ justify-content: center;
 align-items: center;
 background: white;
 padding: 1rem;
+gap: 0.5rem;
 border-radius: 8px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 transition: transform 0.2s ease;
@@ -97,7 +98,7 @@ cursor: pointer;
     font-weight: bold;
     font-family: var(--secondary-font);
     color: #403f2b;
-    margin: 0.5rem 0;
+    /* margin: 0.5rem 0; */
     font-size: 1.1rem;
 }
 

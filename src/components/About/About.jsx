@@ -10,10 +10,10 @@ const About = () => {
   return (
     <>
       <div className="mainpage__container">
-        <div className="heading__title">
+        <div className="heading__title"  data-aos="zoom-in">
           <h1>Our Mission</h1>
         </div>
-        <div className="about__content">
+        <div className="about__content"  data-aos="zoom-in">
           <p>
             We believe in a sustainable and equitable trading system. Our
             platform encourages users to exchange items without the involvement
@@ -21,7 +21,7 @@ const About = () => {
             values.
           </p>
         </div>
-        <div className="icons__container">
+        <div className="icons__container"  data-aos="zoom-in">
           <div className="icon__content">
             <img src={icon1}></img>
             <p>Barter System</p>
@@ -43,7 +43,7 @@ const About = () => {
             <p>Empowering</p>
           </div>
         </div>
-        <div className="about__small_content">
+        <div className="about__small_content" data-aos="zoom-in">
           <p>
             Our platform is designed to facilitate meaningful trades and
             connections between individuals. We are committed to providing a

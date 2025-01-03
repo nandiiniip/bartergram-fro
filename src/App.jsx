@@ -4,7 +4,7 @@ import {
   MainPage,
   UserRegister,
   CreateProduct,
-  DisplayProduct,
+  DisplayProducts,
   Login,
   ChatPage,
   Explore,
@@ -12,11 +12,13 @@ import {
   DisplayCard
 } from "./pages";
 import "./App.css";
+import ScrollToTop from "./utils/ScrollToTop.jsx";
 import PrivateRoute from "./utils/PrivateRoute";
 
 const App = () => {
   return (
     <div className="App">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<UserRegister />} />
@@ -33,7 +35,7 @@ const App = () => {
           path="/display"
           element={
             <PrivateRoute>
-              <DisplayProduct />
+              <DisplayProducts />
             </PrivateRoute>
           }
         />

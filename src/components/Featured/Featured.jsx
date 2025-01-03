@@ -63,14 +63,14 @@ const Featured = () => {
 
     return (
         <div className="featured__container">
-            <div className="featured__title">
+            <div className="featured__title" data-aos="zoom-in">
                 <h1>Featured Trades</h1>
             </div>
             <div className="carousel">
-                <button className="prev__button" onClick={handlePrev}>
+                <button className="prev__button" onClick={handlePrev} data-aos="zoom-in">
                     &lt; {/* Left Arrow */}
                 </button>
-                <div className="carousel__viewport">
+                <div className="carousel__viewport"  data-aos="zoom-in">
                     {products.slice(currentIndex, currentIndex + 3).map((product, index) => {
                         return (
                             <div key={index} className="featured__product">
@@ -86,7 +86,7 @@ const Featured = () => {
                         );
                     })}
                 </div>
-                <button className="next__button" onClick={handleNext}>
+                <button className="next__button" onClick={handleNext} data-aos="zoom-in">
                     &gt; {/* Right Arrow */}
                 </button>
             </div>

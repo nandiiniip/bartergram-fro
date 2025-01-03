@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useMutation } from "react-query";
 import axios from "axios";
 import "./UserRegister.css";

@@ -33,11 +33,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="navbar__right_content">
-            <Link className="nav__link" to="/display">
-              My Products
-            </Link>
+          <Link className="nav__link" to="/explore">
+                Explore
+              </Link>
             <Link className="nav__link" to="/notifications">
-              My Chats
+              Chats
             </Link>
             {isAuthenticated ? (
               <div className="user__dropdown">
@@ -48,6 +48,9 @@ const Navbar = () => {
                 {dropdownVisible && (
                   <div className="user__info" onMouseLeave={closeDropdown}>
                     <span>{username}</span>
+                    <Link className="nav__link_prod" to="/display">
+                        My Products
+                    </Link>
                     <button onClick={handleLogout} className="logout__button">
                       Logout
                     </button>

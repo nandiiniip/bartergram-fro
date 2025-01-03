@@ -17,7 +17,7 @@ const DisplayCard = ({ product }) => {
         </div>
         <div className="product__details">
           <img
-            src={`data:image/jpeg;base64,${product.image_base64}`}
+            src={`data:image/jpeg;base64,${product.image_base64[0]}`}
             alt={product.name}
           />
           <p className="owner__details">

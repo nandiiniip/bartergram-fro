@@ -5,11 +5,13 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { AuthProvider } from "./utils/UserContext.jsx";
 import App from "./App";
 import "./index.css";
+import AOS from "aos";
+import 'aos/dist/aos.css'
 
+AOS.init({duration:700});
 const queryClient = new QueryClient();
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
-
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

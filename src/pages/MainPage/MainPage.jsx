@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainPage.css";
-import { Landing, About, Featured, Navbar } from "../../components";
+import { Landing, About, Featured, Navbar, Connect } from "../../components";
 
 const MainPage = () => {
   return (
@@ -10,6 +10,7 @@ const MainPage = () => {
         <Landing />
         <Featured />
         <About />
+        <Connect />
       </div>
     </>
   );

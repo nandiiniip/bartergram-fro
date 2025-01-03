@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 import "./DisplayProducts.css";
 import baseUrl from "../../utils/urls";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../components";
-import DisplayCard from "../DisplayCard/DisplayCard";
 
 const DisplayProducts = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [selectedImage, setSelectedImage] = useState(null);
-  const [productId, setProductId] = useState(null);
 
+  // Fetch products
   const { data, error, isLoading } = useQuery("userProducts", async () => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -27,10 +27,36 @@ const DisplayProducts = () => {
     return response.data;
   });
 
+  // Delete product mutation
+  const deleteProductMutation = useMutation(
+    async (productId) => {
+      const token = localStorage.getItem("token");
+      await axios.delete(`${baseUrl}/delete/${productId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    },
+    {
+      onSuccess: () => {
+        // Refetch products or update the state to remove the deleted product
+        queryClient.invalidateQueries("userProducts");
+      },
+    }
+  );
+
+  const handleDeleteProduct = (productId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+    if (confirmDelete) {
+      deleteProductMutation.mutate(productId);
+    }
+  };
 
   const handleClick = () => {
-    navigate("/create")
-  }
+    navigate("/create");
+  };
 
   if (isLoading) {
     return (
@@ -57,49 +83,56 @@ const DisplayProducts = () => {
       <div className="display__container">
         <Navbar />
         <div className="display__content">
-        <div className="header">
-          <h1>My Products</h1>
-          <div className="prod__sub">
-          <button className="prod__button" onClick={handleClick}>Create Product</button>
-          {/* <div className="close__button" onClick={handleClose}>
-          <IoMdCloseCircleOutline />
-            </div> */}
-            </div>
-        </div>
-
-        <div className="display__products">
-          {data?.products?.length === 0 ? (
-            <div className="no__products">No products found</div>
-          ) : (
-            data?.products?.map((product) => (
-              <div key={product.product_id} className="display__product">
-                {product.images[0] && (
-                  <img
-                    src={`data:image/jpeg;base64,${product.images[0]}`}
-                    alt={product.product_name}
-                    onClick={() => setSelectedImage(product.images[0])}
-                  />
-                )}
-                <p className="prod__name">{product.product_name}</p>
-                {/* <p>{product.description}</p> */}
-                <p className="image__count">Images: {product.image_count}</p>
-              </div>
-            ))
-          )}
-        </div>
-
-        {/* Image Modal */}
-        {selectedImage && (
-          <div className="modal__overlay" onClick={() => setSelectedImage(null)}>
-            <div className="modal__content">
-              <img
-                src={`data:image/jpeg;base64,${selectedImage}`}
-                alt="Selected product"
-              />
+          <div className="header">
+            <h1>My Products</h1>
+            <div className="prod__sub">
+              <button className="prod__button" onClick={handleClick}>
+                Create Product
+              </button>
             </div>
           </div>
-        )}
-      </div>
+
+          <div className="display__products">
+            {data?.products?.length === 0 ? (
+              <div className="no__products">No products found</div>
+            ) : (
+              data?.products?.map((product) => (
+                <div key={product.product_id} className="display__product">
+                  {product.images[0] && (
+                    <img
+                      src={`data:image/jpeg;base64,${product.images[0]}`}
+                      alt={product.product_name}
+                      onClick={() => setSelectedImage(product.images[0])}
+                    />
+                  )}
+                  <p className="prod__name">{product.product_name}</p>
+                  <p className="image__count">Images: {product.image_count}</p>
+                  <button
+                    className="chat__button"
+                    onClick={() => handleDeleteProduct(product.product_id)}
+                  >
+                    Delete Product
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Image Modal */}
+          {selectedImage && (
+            <div
+              className="modal__overlay"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div className="modal__content">
+                <img
+                  src={`data:image/jpeg;base64,${selectedImage}`}
+                  alt="Selected product"
+                />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
