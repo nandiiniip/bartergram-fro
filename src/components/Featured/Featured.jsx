@@ -21,7 +21,6 @@ const Featured = () => {
                     user_id: product.user_id,
                 }));
                 setProducts(fetchedProducts);
-                console.log("Products Data:", fetchedProducts); // Debug 1
             } catch (error) {
                 console.error("Error fetching products:", error);
             }

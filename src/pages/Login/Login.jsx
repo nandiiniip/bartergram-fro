@@ -24,13 +24,13 @@ const Login = () => {
       }),
     {
       onSuccess: (response) => {
-        console.log("API Response:", response.data); // Debugging API response
-        const { access_token, username, user_id, token_type, expires_at } = response.data; // Destructure the full response
+        // console.log("API Response:", response.data); 
+        const { access_token, username, user_id, token_type, expires_at } = response.data; 
         if (!access_token || !username || !user_id) {
           setMessage({ type: "error", text: "Login failed: Missing data from API" });
           return;
         }
-        login(access_token, username, user_id); // Pass token, username, and id to context
+        login(access_token, username, user_id); 
         setMessage({ type: "success", text: "Login successful!" });
         setTimeout(() => navigate("/explore"), 1000);
       },

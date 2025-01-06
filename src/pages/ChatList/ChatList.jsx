@@ -26,8 +26,6 @@ const ChatList = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log("API Response:", response.data); // Debug log to verify API data
       return response.data;
     } catch (err) {
       console.error("Error fetching chat participants:", err.response?.data || err.message);

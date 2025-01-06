@@ -7,10 +7,9 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const login = (token, username, id) => {
-    console.log("Storing token, username, and id:", token, username, id); // Debugging context values
     localStorage.setItem("token", token);
     localStorage.setItem("username", username);
-    localStorage.setItem("user_id", id); // Store user_id as well
+    localStorage.setItem("user_id", id); 
     setAuthState({ token, username, user_id: id, isAuthenticated: true });
   };
 
@@ -22,7 +21,6 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
-  // Initial state
   const [authState, setAuthState] = useState({
     token: localStorage.getItem("token") || null,
     username: localStorage.getItem("username") || null,
@@ -31,7 +29,6 @@ export const AuthProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    // Validate token on app load (optional)
     const token = localStorage.getItem("token");
     if (!token) {
       logout();

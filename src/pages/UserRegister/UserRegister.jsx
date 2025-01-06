@@ -12,11 +12,7 @@ const UserRegister = () => {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    navigate("/"); // Redirect to home page
-  };
-
-  const handleLogin = () => {
-    navigate("/login");
+    navigate("/"); 
   };
 
   const registerMutation = useMutation(
@@ -40,7 +36,7 @@ const UserRegister = () => {
 
   useEffect(() => {
     setFormData({ username: "", password: "" });
-    setMessage(""); // Clear any previous messages
+    setMessage(""); 
   }, []);
 
   const handleChange = (e) => {
