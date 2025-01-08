@@ -1,12 +1,12 @@
 import React from "react";
 import "./DisplayCard.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Navbar } from "../../components";
 
 const DisplayCard = ({ product }) => {
     const navigate = useNavigate();
     const handleChat = () => {
-        navigate(`/chat?username=${product.username}`);
+        navigate(`/chat?username=${product.username}`, { state: { productName: product.name } });
     };
   return (
     <div className="card__container">

@@ -15,6 +15,7 @@ const ChatPage = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const productOwnerUsername = searchParams.get('username');
+    const { productName } = location.state || {}; 
 
     useEffect(() => {
         const fetchChatHistory = async () => {
@@ -174,6 +175,7 @@ const ChatPage = () => {
             <div className="chat-container">
                 <div className="chat-header">
                     <h2>Chat with {productOwnerUsername}</h2>
+                    {productName && <p>Chatting for {productName}</p>}
                 </div>
                 <div className="message-list" ref={messageListRef}>
                     {messages.map((msg, index) => (

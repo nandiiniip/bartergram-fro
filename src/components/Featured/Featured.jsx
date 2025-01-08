@@ -41,7 +41,7 @@ const Featured = () => {
         );
     };
 
-      const handleChat = async (productId) => {
+      const handleChat = async (productId, prodName) => {
             if (!productId) {
                 console.error("Product ID is undefined or invalid.");
                 return;
@@ -54,7 +54,7 @@ const Featured = () => {
 
 
                 // Navigate to the chat page with the username as params
-                  navigate(`/chat?username=${username}`);
+                  navigate(`/chat?username=${username}`, {state: {productName:prodName}});
             } catch (error) {
                 console.error("Error fetching product details:", error);
             }
@@ -77,7 +77,7 @@ const Featured = () => {
                                 <p className="prod__name">{product.name}</p>
                                 <button
                                     className="chat__button"
-                                    onClick={() => handleChat(product.id)}
+                                    onClick={() => handleChat(product.id,product.name)}
                                 >
                                     Chat Now
                                 </button>
