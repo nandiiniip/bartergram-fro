@@ -141,23 +141,34 @@ const ChatPage = () => {
             const message = {
                 sender: authState.username,
                 receiver: productOwnerUsername,
-                content: newMessage
+                content: newMessage,
             };
             ws.send(JSON.stringify(message));
+    
+            // Format the timestamp as dd/mm/yyyy hh:mm am/pm
+            const now = new Date();
+            const day = now.getDate().toString().padStart(2, '0');
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'pm' : 'am';
+            const formattedHours = (hours % 12 || 12).toString().padStart(2, '0');
+            const formattedTimestamp = `${day}/${month}/${year} ${formattedHours}:${minutes} ${ampm}`;
+    
             setMessages((prevMessages) => [
                 ...prevMessages,
                 {
                     sender: authState.username,
                     content: newMessage,
-                    timestamp: new Date().toLocaleString('en-IN', {
-                        timeZone: 'Asia/Kolkata',
-                    }) // Convert the message timestamp to IST
-                }
+                    timestamp: formattedTimestamp, // Use the custom format
+                },
             ]);
             setNewMessage('');
             scrollToBottom();
         }
     };
+    
 
     const handleInputChange = (e) => {
         setNewMessage(e.target.value);
